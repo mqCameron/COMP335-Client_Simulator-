@@ -45,19 +45,17 @@ public class Client {
 	
 	public Client(String address, int port) {
 		try {
-			// connect to server
+			// connect to server and initialize input and out data stream
 			socket = new Socket(address, port);
-			System.out.println("Connected");
-
-			// Initialize input and out data stream
 			input = new DataInputStream(socket.getInputStream());
 			output = new DataOutputStream(socket.getOutputStream());
+			
+			//error handling if connection can be established 
+		} catch (UnknownHostException UnKnown) {
+			System.out.println(UnKnown);
 
-		} catch (UnknownHostException u) {
-			System.out.println(u);
-
-		} catch (IOException i) {
-			System.out.println(i);
+		} catch (IOException IOerror) {
+			System.out.println(IOerror);
 		}
 
 		// send messages to server
@@ -131,8 +129,8 @@ public class Client {
 					// output.write(?????.getBytes());
 				
 
-			} catch (IOException i) {
-				System.out.println(i);
+			} catch (IOException IOerror) {
+				System.out.println(IOerror);
 			}
 		}
 		
@@ -142,8 +140,8 @@ public class Client {
 			input.close();
 			output.close();
 			socket.close();
-		} catch (IOException i) {
-			System.out.println(i);
+		} catch (IOException IOerror) {
+			System.out.println(IOerror);
 		}
 	}
 }
