@@ -123,7 +123,9 @@ String quit = "QUIT";
                     socket.close();
                 }
 
-                // Part 3 Ready for job
+
+
+                // Part 3: Victor if you want to put your code for the parsing and jobs scheduler below: 
                 
 
   
